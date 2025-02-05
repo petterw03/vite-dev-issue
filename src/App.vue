@@ -7,19 +7,19 @@ const updated = ref(false);
 
 const data = ref([
   ['Category', 'Series 1'],
-  ['a', 'abc'],
+  ['a', 'abc'], // this will make Highcharts crash
   ['b', 2],
   ['c', 3],
 ]);
 
 function updateData() {
-  data.value = [
+  data.value = [ // this does not work, since the Highcharts component already crashed
     ['Category', 'Series 1'],
     ['a', 1],
     ['b', 2],
     ['c', 3],
   ];
-  updated.value = true;
+  updated.value = true; // this should still be fired
 }
 
 const chartOptions = computed(() => {
